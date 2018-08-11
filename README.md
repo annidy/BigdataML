@@ -25,6 +25,8 @@ silhouette_coefficient.py
 #第十章分类
 ##朴素贝叶斯和疾病预测
 naive_bayes_gaussian.py
+##rbf分类
+svm_age.py
 ##决策树
 info.py
 ##随机森林
@@ -47,3 +49,10 @@ svm_classification.py
 
 #sql部分
 sql.txt
+
+
+
+# 吴恩达机器学习代码
+
+## 梯度下降算法
+linera_regression.py
