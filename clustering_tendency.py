@@ -58,5 +58,5 @@ for i in qn:
     yn.append(distance_min)
 
 H = float(np.sum(yn)) / (np.sum(xn) + np.sum(yn))
-print H
+print(H)
 #结果为 0.547 059 223 781

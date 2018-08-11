@@ -36,10 +36,13 @@ n_clusters = len(set(cls.labels_))
 #X中每项所属分类的一个列表
 cls.labels_
 
+print((cls.labels_))
+
 #画图
 markers = ['^', 'x', 'o', '*', '+']
 for i in range(n_clusters):
     my_members = cls.labels_ == i
+    print((i, my_members, cls.labels_ == i))
     plt.scatter(X[my_members, 0], X[my_members, 1], s=60, marker=markers[i], c='b', alpha=0.5)
 
 plt.title('dbscan')

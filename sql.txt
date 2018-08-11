@@ -1,4 +1,4 @@
-P185 ÷ß≥÷∂»º∆À„
+P185 ÊîØÊåÅÂ∫¶ËÆ°ÁÆó
 
 SELECT
 TRANSACTION_COUNT.COUNT_NUMBER/ TRANSACTION_ALL.COUNT_NUMBER
@@ -6,9 +6,9 @@ FROM
 (
 	SELECT COUNT(*) COUNT_NUMBER
 	FROM
-	(SELECT Serial FROM Buy_list WHERE Type='∆°æ∆') R1
+	(SELECT Serial FROM Buy_list WHERE Type='Âï§ÈÖí') R1
 	INNER JOIN
-	(SELECT Serial FROM Buy_list WHERE Type='œ„—Ã') R2
+	(SELECT Serial FROM Buy_list WHERE Type='È¶ôÁÉü') R2
 	ON
 	R1.Serial=R2.Serial
 ) TRANSACTION_COUNT
@@ -21,14 +21,14 @@ INNER JOIN
 ON 1=1;
 
 
-P186 ÷√–≈∂»º∆À„
+P186 ÁΩÆ‰ø°Â∫¶ËÆ°ÁÆó
 
 CREATE TABLE TEMP(R1_Serial VARCHAR(64), R2_Serial VARCHAR(64)) AS
 SELECT *
 FROM
-(SELECT Serial R1_Serial  FROM Buy_list WHERE Type='∆°æ∆') R1 
+(SELECT Serial R1_Serial  FROM Buy_list WHERE Type='Âï§ÈÖí') R1 
 LEFT JOIN
-(SELECT Serial R2_Serial FROM Buy_list WHERE Type='œ„—Ã') R2
+(SELECT Serial R2_Serial FROM Buy_list WHERE Type='È¶ôÁÉü') R2
 ON R1.R1_Serial=R2.R2_Serial;
 
 SELECT R2.R2_COUNT/R1.R1_COUNT
@@ -43,7 +43,7 @@ FROM
 TEMP) R1
 ON 1=1;
 
-P190 ƒ£ Ω±Ì
+P190 Ê®°ÂºèË°®
 
 CREATE TABLE PATTERNS(Serial VARCHAR(64), Type1 VARCHAR(64), Type2 VARCHAR(64)) AS
 SELECT R1.Serial Serial, R1.Type1 Type1, R2.Type2 Type2
@@ -53,14 +53,14 @@ INNER JOIN
 (SELECT Serial, Type Type2 FROM Buy_list) R2
 ON R1.Serial=R2.Serial AND R1.Type1<>R2.Type2;
 
-P190 «Û ˝¡ø
+P190 Ê±ÇÊï∞Èáè
 
 SELECT COUNT(*) Support, Type1, Type2
 FROM
 PATTERNS
 GROUP BY Type1, Type2;
 
-P191 «Û÷√–≈∂»
+P191 Ê±ÇÁΩÆ‰ø°Â∫¶
 
 SELECT R1.Type1, R1.Type2, R1.Type_count/TYPE_COUNT_VIEW.Type_count Confidence
 FROM
@@ -72,7 +72,7 @@ INNER JOIN
 TYPE_COUNT_VIEW
 ON R1.Type1=TYPE_COUNT_VIEW.Type;
 
-P192 «ÛÃ·…˝∂»
+P192 Ê±ÇÊèêÂçáÂ∫¶
 
 SELECT FRACTION.Type1,FRACTION.Type2,FRACTION.PBA/NUMERATOR.PBPossibility
 FROM

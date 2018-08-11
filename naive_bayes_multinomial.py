@@ -60,4 +60,4 @@ predicted = clf.predict(X_new_tfidf)
 
 #打印结果
 for doc, category in zip(docs_new, predicted):
-    print('%r => %s' % (doc, twenty_train.target_names[category]))
+    print(('%r => %s' % (doc, twenty_train.target_names[category])))

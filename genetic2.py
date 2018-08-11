@@ -7,14 +7,14 @@ import numpy as np
 #极大值问题
 #染色体 基因X 基因Y
 X = [
-    [1, 000000100101001, 101010101010101],
-    [2, 011000100101100, 001100110011001],
-    [3, 001000100100101, 101010101010101],
-    [4, 000110100100100, 110011001100110],
+    [1, 0o00000100101001, 101010101010101],
+    [2, 0o11000100101100, 0o01100110011001],
+    [3, 0o01000100100101, 101010101010101],
+    [4, 0o00110100100100, 110011001100110],
     [5, 100000100100101, 101010101010101],
     [6, 101000100100100, 111100001111000],
     [7, 101010100110100, 101010101010101],
-    [8, 100110101101000, 000011110000111]]
+    [8, 100110101101000, 0o00011110000111]]
 
 
 #染色体长度
@@ -63,7 +63,7 @@ def fitness(chromosome_states):
         else:
             y = 10 * (float(int(chromosome_state[1], 2) + 1)/16384)
         z = y * math.sin(x) + x * math.cos(y)
-        print x, y, z
+        print(x, y, z)
         fitnesses.append(z)
 
     return fitnesses
@@ -86,7 +86,7 @@ def crossover(chromosome_states):
     while chromosome_states:
         chromosome_state = chromosome_states.pop(0)
         for v in chromosome_states:
-            pos = random.choice(range(8, CHROMOSOME_SIZE - 1))
+            pos = random.choice(list(range(8, CHROMOSOME_SIZE - 1)))
             chromosome_states_new.append([chromosome_state[0][:pos] + v[0][pos:], chromosome_state[1][:pos] + v[1][pos:]])
             chromosome_states_new.append([v[0][:pos] + chromosome_state[1][pos:], v[0][:pos] + chromosome_state[1][pos:]])
     return chromosome_states_new
@@ -99,7 +99,7 @@ def mutation(chromosome_states):
         n -= 1
         chromosome_state = random.choice(chromosome_states)
         index = chromosome_states.index(chromosome_state)
-        pos = random.choice(range(len(chromosome_state)))
+        pos = random.choice(list(range(len(chromosome_state))))
         x = chromosome_state[0][:pos] + str(int(not int(chromosome_state[0][pos]))) + chromosome_state[0][pos+1:]
         y = chromosome_state[1][:pos] + str(int(not int(chromosome_state[1][pos]))) + chromosome_state[1][pos+1:]
         chromosome_states[index] = [x, y]
@@ -115,11 +115,11 @@ if __name__ == '__main__':
         chromosome_states = crossover(chromosome_states)
         mutation(chromosome_states)
         fitnesses = fitness(chromosome_states)
-        chromosome_states, top1_fitness_index = filter(chromosome_states, fitnesses)
-        print '---------%d-----------' % n
-        print chromosome_states
+        chromosome_states, top1_fitness_index = list(filter(chromosome_states, fitnesses))
+        print('---------%d-----------' % n)
+        print(chromosome_states)
         last_three[last_num] = fitnesses[top1_fitness_index]
-        print fitnesses[top1_fitness_index]
+        print(fitnesses[top1_fitness_index])
         if is_finished(last_three):
             break
         if last_num >= 2:

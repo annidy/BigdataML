@@ -50,4 +50,4 @@ X_new_tfidf = tfidf_transformer.transform(X_new_counts)
 predicted = clf.predict(X_new_tfidf)
 
 for doc, category in zip(docs_new, predicted):
-    print('%r => %s' % (doc, twenty_train.target_names[category]))
+    print(('%r => %s' % (doc, twenty_train.target_names[category])))

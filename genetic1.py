@@ -99,7 +99,7 @@ def crossover(chromosome_states, selected_index):
         chromosome_state = chromosome_states.pop(index)
         for i in range(selected_index[index]):
             chromosome_state_x = random.choice(chromosome_states)
-            pos = random.choice(range(1, CHROMOSOME_SIZE - 1))
+            pos = random.choice(list(range(1, CHROMOSOME_SIZE - 1)))
             chromosome_states_new.append(chromosome_state[:pos] + chromosome_state_x[pos:])
         chromosome_states.insert(index, chromosome_state)
     return chromosome_states_new
@@ -115,16 +115,16 @@ if __name__ == '__main__':
         fitnesses = fitness(chromosome_states)
         if is_finished(fitnesses):
             break
-        print '1:', fitnesses
+        print('1:', fitnesses)
         #遴选
-        selected_index = filter(chromosome_states, fitnesses)
-        print '2:', selected_index
+        selected_index = list(filter(chromosome_states, fitnesses))
+        print('2:', selected_index)
         #产生下一代
         chromosome_states = crossover(chromosome_states, selected_index)
         # print '3:', chromosome_states
 
     fitnesses = fitness(chromosome_states)
-    print chromosome_states
+    print(chromosome_states)
 
 # 1: [[60, 35], [105, 60], [140, 75], [175, 95]]
 # 2: [1, 1, 2]

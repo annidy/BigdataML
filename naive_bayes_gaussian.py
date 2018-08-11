@@ -25,8 +25,8 @@ Y = [1, 2, 1, 2, 0, 0, 3, 1, 1]
 clf = GaussianNB().fit(X, Y)
 
 #预测当天是晴天后一天的天气
-p = [[1]]
-print clf.predict(p)
+p = [[0]]
+print(clf.predict(p))
 
 
 #疾病预测
@@ -56,7 +56,7 @@ clf = GaussianNB().fit(X, y1)
 
 #预测
 p = [[1, 0]]
-print clf.predict(p)
+print(clf.predict(p))
 
 #胆结石
 y2 = [0, 1, 0, 0, 1, 1, 1, 0, 0, 1]
@@ -66,5 +66,5 @@ clf = GaussianNB().fit(X, y2)
 
 #预测
 p = [[1, 0]]
-print clf.predict(p)
+print(clf.predict(p))
 

@@ -27,7 +27,9 @@ b = X[:, 1:] / 1392358258.0 * 10000
 X = np.concatenate((a, b), axis=1)
 
 #类簇的数量
-n_clusters = 3
+n_clusters = 6
+
+print(("n_clusters ", n_clusters))
 
 cls = KMeans(n_clusters).fit(X)
 
@@ -46,7 +48,7 @@ distance_sum = 0
 for v in X[1:]:
     distance_sum += manhattan_distance(np.array(X[0]), np.array(v))
 av = distance_sum / len(X[1:])
-print av
+print(av)
 #11971.5037823
 
 #b(v), X[0]
@@ -61,9 +63,9 @@ for i in range(n_clusters):
         if distance_min > distance:
             distance_min = distance
 bv = distance_sum / n_clusters
-print bv
+print(bv)
 #43895.5138683
 
 sv = float(bv - av) / max(av, bv)
-print sv
+print(sv)
 #0.727272727273

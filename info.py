@@ -35,7 +35,7 @@ def infoA():
     return info
 
 
-print infoA()
+print(infoA())
 #结果0.872032787226
 
 
@@ -77,5 +77,5 @@ def infoA():
     return info
 
 
-print infoA()
+print(infoA())
 

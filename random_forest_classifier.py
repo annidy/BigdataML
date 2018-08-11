@@ -36,5 +36,5 @@ y = [0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1]
 clf = RandomForestClassifier()
 clf.fit(X, y)
 p = [[28, 180, 18, 2]]
-print clf.predict(p)
+print(clf.predict(p))
 

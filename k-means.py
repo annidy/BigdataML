@@ -13,7 +13,7 @@ for v in f:
 X = np.array(X)
 
 #类簇的数量
-n_clusters = 5
+n_clusters = 4
 
 #现在我们把数据和对应的分类数放入聚类函数中进行聚类
 cls = KMeans(n_clusters).fit(X)
