@@ -56,3 +56,4 @@ sql.txt
 
 ## 梯度下降算法
 linera_regression.py
+
