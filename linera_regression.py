@@ -55,7 +55,7 @@ for itn in range(1000):
         step = step / 10
     dg = ndg
     print(dg)
-    if (dg < step/2): # 假定下降小于步长一半
+    if (dg < step/10): # 1000试试
         print("迭代次数 = ", itn)
         break
 
@@ -63,13 +63,20 @@ print(t0, t1)
 
 
 
-plt.title('梯度下降')
+plt.title('')
 
 # 画图
 # 1.真实的点
 plt.scatter(X, Y, color='blue')
  
 # 2.拟合的直线
-plt.plot(X, [ (t0 + t1 * n) for n in X ], color='red')
+# plt.plot(X, [ (t0 + t1 * n) for n in X ], color='red')
+x = np.array(X)
+plt.plot(x,   t0 + x * t1, color='red', label='linera')
+
+A = np.vstack([X, np.ones(len(X))]).T
+a, b = np.linalg.lstsq(A, Y)[0]
+plt.plot(x, b + x * a, color='blue', label='numpy.linalg')
+
 
 plt.show()
