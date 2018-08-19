@@ -56,4 +56,8 @@ sql.txt
 
 ## 梯度下降算法
 linera_regression.py
+## 梯度下降算法 -- 线性代数优化
+linera_regression_vec.py
+## 梯度下降算法 -- 方程解法
+linera_regression_normal.py
 

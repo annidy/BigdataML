@@ -14,7 +14,8 @@ Y = np.array([0.8,1.3,1.9,5])
 
 X1 = np.vstack((np.ones(len(X)), X)).T
 
-t = np.linalg.inv(X1.T @ X1) @ X1.T @ Y
+# use pinv instead of inv
+t = np.linalg.pinv(X1.T @ X1) @ X1.T @ Y
 
 
 plt.title('')
